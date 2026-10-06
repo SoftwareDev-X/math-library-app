@@ -31,4 +31,48 @@ public class Vector : PointVectorBase
     {
         return CalculateSum(addends).AsVector();
     }
+
+    public Vector Subtract(Vector[] subtrahends)
+    {
+        var result = new Vector(this);
+        foreach (var subtrahend in subtrahends)
+        {
+            result.X -= subtrahend.X;
+            result.Y -= subtrahend.Y;
+            result.Z -= subtrahend.Z;
+        }
+
+        return result;
+    }
+
+    public Vector MultiplyScalar(double scalarFactor)
+    {
+        return new Vector(X * scalarFactor, 
+            Y * scalarFactor, 
+            Z * scalarFactor);
+    }
+
+    public Vector CrossProduct(Vector b)
+    {
+        return new Vector(
+            Y * b.Z - Z * b.Y,
+            -(X * b.Z - Z * b.X),
+            X * b.Y - Y * b.X);
+    }
+
+    public double DotProduct(Vector b)
+    {
+        return X * b.X + Y * b.Y + Z * b.Z;
+    }
+
+    public Vector Normalize()
+    {
+        return new Vector(X / Length, Y / Length, Z / Length);
+    }
+
+    public bool AreCollinear(Vector b, double tolerance = Tolerance)
+    {
+        return Math.Abs(DotProduct(b)) < tolerance;
+    }
+    
 }
