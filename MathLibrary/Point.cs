@@ -2,7 +2,7 @@ namespace MathLibrary;
 
 public class Point : PointVectorBase
 {
-    public static readonly Point Origin;
+    public static readonly Point Origin = new Point();
 
     public Point(double x = 0, double y = 0, double z = 0)
     {
@@ -23,7 +23,7 @@ public class Point : PointVectorBase
         return CalculateDistanceTo(endPoint);
     }
 
-    public Point Add(Vector[] addends)
+    public Point Add(params Vector[] addends)
     {
         return CalculateSum(addends).AsPoint();
     }

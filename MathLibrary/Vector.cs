@@ -27,12 +27,12 @@ public class Vector : PointVectorBase
         Z = sourceVector.Z;
     }
 
-    public Vector Add(Vector[] addends)
+    public Vector Add(params Vector[] addends)
     {
         return CalculateSum(addends).AsVector();
     }
 
-    public Vector Subtract(Vector[] subtrahends)
+    public Vector Subtract(params Vector[] subtrahends)
     {
         var result = new Vector(this);
         foreach (var subtrahend in subtrahends)

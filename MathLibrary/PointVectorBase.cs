@@ -28,16 +28,17 @@ public class PointVectorBase
                          + Math.Pow(endPvBase.Z-Z,2));
     }
 
-    protected PointVectorBase CalculateSum(Vector[] addends)
+    protected PointVectorBase CalculateSum(params Vector[] addends)
     {
+        var result = new PointVectorBase(this);
         foreach (var addend in addends)
         {
-            X += addend.X;
-            Y += addend.Y;
-            Z += addend.Z;
+            result.X += addend.X;
+            result.Y += addend.Y;
+            result.Z += addend.Z;
         }
 
-        return this;
+        return result;
     }
 
     public Point AsPoint()
