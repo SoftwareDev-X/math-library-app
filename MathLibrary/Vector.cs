@@ -2,7 +2,7 @@ namespace MathLibrary;
 
 public class Vector : PointVectorBase
 {
-    public static readonly Vector Zero = new Vector(0);
+    public static readonly Vector Zero = new Vector();
     public static readonly Vector One = new Vector(1,1,1);
     public static readonly Vector XDir = new Vector(1);
     public static readonly Vector YDir = new Vector(0,1);
